@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu de Ping Pong</title>
+    <style>
+        body {
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        canvas {
+            border: 2px solid #fff;
+            background-color: #333;
+            display: none; /* Caché initialement */
+        }
+        #scoreboard {
+            position: absolute;
+            top: 20px;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            display: none; /* Caché initialement */
+        }
+        #play-button {
+            padding: 15px 30px;
+            font-size: 24px;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #play-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <button id="play-button">JOUER</button>
+    <div id="scoreboard">Joueur 1: 0 | Joueur 2: 0</div>
+    <canvas id="pongCanvas" width="800" height="600"></canvas>
+
+    <script>
+        const playButton = document.getElementById('play-button');
+        const canvas = document.getElementById('pongCanvas');
+        const ctx = canvas.getContext('2d');
+        const scoreboard = document.getElementById('scoreboard');
+
+        // Variables du jeu
+        const paddleWidth = 10;
+        const paddleHeight = 100;
+        const ballRadius = 10;
+
+        let player1 = {
+            x: 0,
+            y: canvas.height / 2 - paddleHeight / 2,
+            width: paddleWidth,
+            height: paddleHeight,
+            dy: 0,
+            score: 0
+        };
+
+        let player2 = {
+            x: canvas.width - paddleWidth,
+            y: canvas.height / 2 - paddleHeight / 2,
+            width: paddleWidth,
+            height: paddleHeight,
+            dy: 0,
+            score: 0
+        };
+
+        let ball = {
+            x: canvas.width / 2,
+            y: canvas.height / 2,
+            radius: ballRadius,
+            speed: 5,
+            dx: 5,
+            dy: 5
+        };
+
+        // Contrôles des joueurs
+        const keys = {};
+
+        document.addEventListener('keydown', (e) => {
+            keys[e.key] = true;
+        });
+
+        document.addEventListener('keyup', (e) => {
+            keys[e.key] = false;
+        });
+
+        // Fonction pour dessiner les raquettes
+        function drawPaddle(x, y, width, height) {
+            ctx.fillStyle = '#fff';
+            ctx.fillRect(x, y, width, height);
+        }
+
+        // Fonction pour dessiner la balle
+        function drawBall(x, y, radius) {
+            ctx.fillStyle = '#fff';
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+            ctx.closePath();
+            ctx.fill();
+        }
+
+        // Fonction pour afficher le score
+        function updateScore() {
+            scoreboard.textContent = `Joueur 1: ${player1.score} | Joueur 2: ${player2.score}`;
+        }
+
+        // Fonction de mise à jour des positions
+        function update() {
+            // Mouvement des joueurs
+            if (keys['z'] && player1.y > 0) {
+                player1.y -= 7;
+            }
+            if (keys['s'] && player1.y < canvas.height - player1.height) {
+                player1.y += 7;
+            }
+            if (keys['ArrowUp'] && player2.y > 0) {
+                player2.y -= 7;
+            }
+            if (keys['ArrowDown'] && player2.y < canvas.height - player2.height) {
+                player2.y += 7;
+            }
+
+            // Mouvement de la balle
+            ball.x += ball.dx;
+            ball.y += ball.dy;
+
+            // Collision avec le haut et le bas du canvas
+            if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
+                ball.dy *= -1;
+            }
+
+            // Collision avec les raquettes
+            if (ball.x - ball.radius < player1.x + player1.width &&
+                ball.y > player1.y &&
+                ball.y < player1.y + player1.height) {
+                ball.dx *= -1;
+                ball.x = player1.x + player1.width + ball.radius; // Empêche de passer à travers
+            }
+
+            if (ball.x + ball.radius > player2.x &&
+                ball.y > player2.y &&
+                ball.y < player2.y + player2.height) {
+                ball.dx *= -1;
+                ball.x = player2.x - ball.radius; // Empêche de passer à travers
+            }
+
+            // Point marqué
+            if (ball.x - ball.radius < 0) {
+                player2.score++;
+                resetBall();
+            }
+
+            if (ball.x + ball.radius > canvas.width) {
+                player1.score++;
+                resetBall();
+            }
+
+            updateScore();
+        }
+
+        // Fonction pour réinitialiser la balle au centre
+        function resetBall() {
+            ball.x = canvas.width / 2;
+            ball.y = canvas.height / 2;
+            ball.dx = -ball.dx;
+            ball.speed = 5;
+        }
+
+        // Fonction pour dessiner tous les éléments
+        function render() {
+            // Effacer le canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Dessiner les raquettes
+            drawPaddle(player1.x, player1.y, player1.width, player1.height);
+            drawPaddle(player2.x, player2.y, player2.width, player2.height);
+
+            // Dessiner la balle
+            drawBall(ball.x, ball.y, ball.radius);
+        }
+
+        let animationId;
+
+        // Fonction principale du jeu
+        function gameLoop() {
+            update();
+            render();
+            animationId = requestAnimationFrame(gameLoop);
+        }
+
+        // Fonction pour démarrer le jeu
+        function startGame() {
+            playButton.style.display = 'none';
+            canvas.style.display = 'block';
+            scoreboard.style.display = 'block';
+            gameLoop();
+        }
+
+        // Ajouter l'événement au bouton "JOUER"
+        playButton.addEventListener('click', startGame);
+    </script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>A propos de moi</title>
+    <link rel="icon" href="icon/shifamanproject.png">
+    <style>
+        /* Styles pour la section des commentaires */
+        #commentaires {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #commentaires h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        #comment-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #comment-input {
+            resize: none;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        #comment-form button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50; /* Couleur verte */
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #comment-form button:hover {
+            background-color: #45a049; /* Couleur plus foncée au survol */
+        }
+
+        #comments-list {
+            margin-top: 20px;
+        }
+
+        .comment {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .comment p {
+            margin: 0;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="icon/shifamanproject.png" alt="Shifman Project" width="165" height="auto">
+
+        <a href="auth.html" id="logout-button" class="logout">
+            <img src="icon/logout.png" alt="SY HALF LIFE²" width="75" height="auto">
+        </a>
+    </header>
+    <nav>
+        <a href="index.html">
+            <img src="icon/aceuil.png" alt="Accueil">
+        </a>
+        <a href="syhl2.html" class="halflife2">
+            <img src="icon/SYHALFLIFE.png" alt="SY HALF LIFE²">
+        </a>
+        <a href="ayspostapo.html" class="abandon">
+            <img src="icon/ayslogo.png" alt="AYS POST APO">
+        </a>
+                <a href="syhl2v1.html" class="halflife2">
+            <img src="syv1/syv1logo.png" alt="SY HALF LIFE V1">
+        </a>
+        <a href="aboutme.html">
+            <img src="icon/aboutmeslected.png" alt="À PROPOS DE MOI">
+        </a>
+        <a href="hmmmm.html">
+            <img src="icon/hmmmm.png" alt="">
+        </a>
+    </nav>
+    <section id="accueil" class="fade-in">
+        <ol>
+            <h2>A propos de moi</h2>
+        </ol>
+        <p>Ici, je vais me présenter.
+
+Je suis un jeune développeur ayant commencé en décembre 2021 sur un projet de roleplay post-apocalyptique sur le jeu Garry's Mod. À l'origine, c'est mon cousin qui m'a montré les bases de la configuration de serveurs, mais, grâce à ma détermination, j'ai décidé d'apprendre à créer moi-même des contenus. C'est ainsi que j'ai commencé le développement pour la première fois. J'ai rapidement compris que cela me plaisait et que c'était ce que je voulais faire plus tard. J'ai alors travaillé pendant deux ans, jusqu'à lancer mon plus gros projet de l'époque : SY Half Life 2 RP. Après de longues heures de développement, le serveur a enfin ouvert ses portes au public. Grâce au travail acharné investi dans ce projet, le serveur a rencontré un franc succès, avec une moyenne de 20 joueurs, ce qui est impressionnant pour Garry's Mod.
+
+Suite à ce succès, j'ai attiré l'attention d'un développeur reconnu dans le monde de Garry's Mod, qui m'a permis de perfectionner encore mes compétences. Malheureusement, SY a dû fermer ses portes en raison de problèmes d'administration. Après un moment de réflexion, j'ai décidé de me lancer dans un nouveau projet, toujours en développement : AYS Post Apo RP. Cependant, au fil du temps, les problèmes de code se sont accumulés, et ma motivation a fini par décliner.
+
+Je savais pourtant que je ne pouvais pas abandonner si facilement ; il était essentiel pour moi de continuer à progresser. C'est pour cette raison que j'ai pris une petite pause avant de reprendre le projet SY HL2RP, dans le but de le sortir de façon définitive.</p>
+    </section> 
+    <section id="presentation" class="fade-in">
+        <h2>Me contacter.</h2>
+        <h3>Voici mon Discord si vous avez des questions à me poser.</h3>
+
+        <!-- Première image avec description et titre -->
+        <div class="image-description image-left">
+            <img src="icon/shifamandiscord.png" alt="Image 1">
+            <div class="description" id="desc1">
+            </div>
+        </div>
+        
+    </section>
+
+    <section id="info-panel">
+        <h2>Mes Informations</h2>
+        <ul>
+            <li><span>Email:</span> kylian.fourmy77650@gmail.com</li>
+            <li><span>Téléphone:</span> 07 50 57 03 90</li>
+            <li><span>Lycée:</span> Le lycée La Fayette - Site de Fontaineroux</li>
+            <li><span>Âge:</span> 16 ans</li>
+        </ul>
+    </section>
+
+    <!-- Section des commentaires -->
+    <section id="commentaires" class="fade-in">
+        <h2>Commentaires</h2>
+        <form id="comment-form">
+            <textarea id="comment-input" placeholder="Écrivez votre commentaire ici..." required></textarea>
+            <button type="submit">Soumettre</button>
+        </form>
+        <div id="comments-list"></div>
+    </section>
+
+    <footer class="fade-in">
+        <p>&copy; SY/AYS</p>
+    </footer>
+
+    <!-- Script JavaScript pour gérer les animations et les commentaires -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gestion des boutons de bascule (toggle buttons)
+            const toggleButtons = document.querySelectorAll('.toggle-button');
+
+            toggleButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const descId = this.getAttribute('aria-controls');
+                    const description = document.getElementById(descId);
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+                    // Toggle la classe 'show' pour afficher/masquer la description
+                    description.classList.toggle('show');
+
+                    // Met à jour l'attribut aria-expanded pour l'accessibilité
+                    this.setAttribute('aria-expanded', !isExpanded);
+
+                    // Change l'icône de la flèche
+                    this.textContent = isExpanded ? '➤' : '➣';
+                });
+            });
+
+            // Appliquer l'animation "fade-in" aux éléments
+            const fadeInElements = document.querySelectorAll('.fade-in');
+            
+            fadeInElements.forEach(element => {
+                element.classList.add('show'); // Ajoute la classe show pour déclencher l'animation
+            });
+
+            // Gestion du formulaire de commentaires
+            const commentForm = document.getElementById('comment-form');
+            const commentsList = document.getElementById('comments-list');
+
+            commentForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Empêche l'envoi du formulaire
+
+                const commentInput = document.getElementById('comment-input');
+                const commentText = commentInput.value.trim();
+
+                if (commentText === "") {
+                    alert("Veuillez écrire un commentaire avant de soumettre.");
+                    return;
+                }
+
+                // Vérifier si le commentaire contient "ping pong" (insensible à la casse)
+                if (/ping pong/i.test(commentText)) {
+                    // Rediriger vers la page souhaitée
+                    window.location.href = "jeux.html"; // Remplacez par l'URL de votre choix
+                    return;
+                }
+
+                // Créer un nouvel élément de commentaire
+                const commentElement = document.createElement('div');
+                commentElement.classList.add('comment');
+                commentElement.textContent = commentText;
+
+                // Ajouter le commentaire à la liste
+                commentsList.appendChild(commentElement);
+
+                // Réinitialiser le champ de texte
+                commentInput.value = '';
+            });
+
+            // Animation de l'image du header lors du clic sur les liens de navigation
+            const headerImage = document.querySelector('header img');
+
+            // Applique l'animation "fall-in" quand la page se charge
+            headerImage.classList.add('fall-in');
+
+            // Sélectionne tous les liens du menu
+            const navLinks = document.querySelectorAll('nav a');
+
+            // Pour chaque lien, on ajoute un écouteur de clic
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    // Empêche le comportement par défaut du lien (navigation immédiate)
+                    event.preventDefault();
+
+                    // Applique l'animation "slide-up" à l'image du header
+                    headerImage.classList.remove('fall-in');  // Retire l'animation d'entrée
+                    headerImage.classList.add('slide-up');    // Applique l'animation de sortie
+
+                    // Attend que l'animation soit terminée avant de charger la nouvelle page
+                    setTimeout(() => {
+                        window.location.href = this.href;
+                    }, 800); // Correspond à la durée de l'animation
+                });
+            });
+        });
+    </script>
+</body>
+</html>

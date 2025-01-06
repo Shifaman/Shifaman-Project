@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>SY HALF LIFE² BETA</title>
+    <link rel="icon" href="icon/SYHALFLIFE.png">
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <header>
+    <img src="icon/SYHALFLIFE.png" alt="Shifman Project" width="165" height="auto" class="fade-in">
+
+            <a href="auth.html" id="logout-button" class="logout">
+        <img src="icon/logout.png" alt="SY HALF LIFE²" width="75" height="auto">
+    </a>
+
+    
+    </header>
+    <nav>
+        <a href="index.html">
+            <img src="icon/aceuil.png" alt="Accueil">
+        </a>
+        <a href="syhl2.html" class="halflife2">
+            <img src="icon/SYHALFLIFEselected.png" alt="SY HALF LIFE²">
+        </a>
+        <a href="ayspostapo.html" class="abandon">
+            <img src="icon/ayslogo.png" alt="AYS POST APO">
+        </a>
+        <a href="syhl2v1.html" class="halflife2">
+            <img src="syv1/syv1logo.png" alt="SY HALF LIFE V1">
+        </a>
+        <a href="aboutme.html">
+            <img src="icon/aboutme.png" alt="À PROPOS DE MOI">
+        </a>
+    </nav>
+    <section id="accueil" class="fade-in">
+        <h2>LORE SY HALF LIFE 2 RP</h2>
+        <p>À l'origine, Half-Life 2 est un jeu de tir qui parle d'un monde sous oppression extraterrestre. Nous incarnons un homme se nommant Gordon Freeman, anciennement docteur dans un laboratoire appelé Black Mesa. Dans le jeu, Gordon Freeman libère la Terre de cette oppression à l'aide de la résistance.</p>
+        <p>Mais imaginons qu'il ait échoué et qu'il soit mort... C'est là que SY HALF-LIFE 2 RP commence. Dans ce monde où le Cartel contrôle la Terre (Cartel, MPF, Combine = Extraterrestres), les gens n'ont pas le droit de courir, sauter ou s'accroupir ; ces comportements sont considérés comme suspects et seront punis par un tabassage public. Ici-bas, il y a deux camps : soit vous rejoignez les anti-citoyens (la résistance), soit vous rejoignez les rangs du Cartel. Mais il vous reste une dernière option... rester un citoyen modèle et monter les échelons de loyauté pour vivre un peu plus paisiblement.</p>
+    </section>
+    
+    <section id="presentation" class="fade-in">
+        <h2>Présentation du projet</h2>
+        <h3>Voici quelques images du gameplay du serveur.</h3>
+        
+        <div class="image-description image-left fade-in">
+            <img src="sy/image1.jpg" alt="Image 1">
+            <button class="toggle-button" aria-expanded="false" aria-controls="desc1">➤</button>
+            <div class="description" id="desc1">
+                <h4>DATA COMBINE</h4>
+                <p>La base de données est accessible depuis une machine à laquelle les CWU (Des collaborateurs qui travaillent avec le Cartel) et les Combine ont accès. Elle permet de noter les délits des citoyens ou encore même leurs bonnes actions. Tout cas est référencé en points : les points de loyauté et les points de violation. Pour avoir le résultat final, il faut soustraire les points de violation aux points de loyauté.</p>
+            </div>
+        </div>
+
+        <div class="image-description image-right fade-in">
+            <img src="sy/image2.jpg" alt="Image 2">
+            <button class="toggle-button" aria-expanded="false" aria-controls="desc2">➤</button>
+            <div class="description" id="desc2">
+                <h4>LE MENU DU SERVEUR</h4>
+                <p>Probablement l'élément le plus complexe, avec la data. Jusqu'ici, recréer les interfaces utilisateur a été très difficile.</p>
+            </div>
+        </div>
+
+        <div class="image-description image-left fade-in">
+            <img src="sy/image3.jpg" alt="Image 3">
+            <button class="toggle-button" aria-expanded="false" aria-controls="desc3">➤</button>
+            <div class="description" id="desc3">
+                <h4>LE MENU F1</h4>
+                <p>Ce menu est un simple menu d'interaction avec lequel les joueurs peuvent interagir en appuyant sur la touche F1. Il permet au joueur de donner de l'argent et de se présenter à la personne en face d'eux.</p>
+            </div>
+        </div>
+        
+    </section>
+    
+    <section id="Rose" class="fade-in">
+    </section>
+    
+    <footer class="fade-in">
+        <p>&copy; SY</p>
+    </footer>
+
+    <!-- Script JavaScript pour gérer le clic sur les flèches et l'animation fade-in -->
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleButtons = document.querySelectorAll('.toggle-button');
+
+            toggleButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const descId = this.getAttribute('aria-controls');
+                    const description = document.getElementById(descId);
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+                    // Toggle la classe 'show' pour afficher/masquer la description
+                    description.classList.toggle('show');
+
+                    // Met à jour l'attribut aria-expanded pour l'accessibilité
+                    this.setAttribute('aria-expanded', !isExpanded);
+
+                    // Change l'icône de la flèche
+                    this.textContent = isExpanded ? '➤' : '➣';
+                });
+            });
+
+            // Ajouter un événement pour quand la page est chargée
+            window.addEventListener('load', function() {
+                const fadeInElements = document.querySelectorAll('.fade-in');
+                
+                fadeInElements.forEach(element => {
+                    element.classList.add('show'); // Ajoute la classe show pour déclencher l'animation
+                });
+            });
+        });
+
+
+/*document.addEventListener('DOMContentLoaded', function() {
+    // Sélectionnez tous les liens du menu
+    const navLinks = document.querySelectorAll('nav a');
+
+    // Pour chaque lien, on ajoute un écouteur de clic
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            // Empêche le comportement par défaut du lien (chargement immédiat de la page)
+            event.preventDefault();
+
+            // Sélectionne toutes les images de la page
+            const images = document.querySelectorAll('img');
+
+            // Applique l'animation à toutes les images
+            images.forEach(img => {
+                img.classList.add('slide-up');
+            });
+
+            // Attend que l'animation se termine avant de changer de page
+            setTimeout(() => {
+                window.location.href = this.href; // Redirige vers la nouvelle page après l'animation
+            }, 500); // Délai de 500ms (correspond à la durée de l'animation)
+        });
+    });
+}); animation vers le haut des images */
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Sélectionne uniquement l'image dans le <header>
+    const headerImage = document.querySelector('header img');
+
+    // Applique l'animation "fall-in" quand la page se charge
+    headerImage.classList.add('fall-in');
+
+    // Sélectionne tous les liens du menu
+    const navLinks = document.querySelectorAll('nav a');
+
+    // Pour chaque lien, on ajoute un écouteur de clic
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            // Empêche le comportement par défaut du lien (navigation immédiate)
+            event.preventDefault();
+
+            // Applique l'animation "slide-up" à l'image du header
+            headerImage.classList.remove('fall-in');  // Retire l'animation d'entrée
+            headerImage.classList.add('slide-up');    // Applique l'animation de sortie
+
+            // Attend que l'animation soit terminée avant de charger la nouvelle page
+            setTimeout(() => {
+                window.location.href = this.href;
+            }, 800); // Correspond à la durée de l'animation
+        });
+    });
+});
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

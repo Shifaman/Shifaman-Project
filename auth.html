@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentification</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #1a1a2e;
+            color: #eaeaea;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: #16213e;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            width: 350px;
+            text-align: center;
+        }
+
+        .login-container h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #eaeaea;
+        }
+
+        .login-container img {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+
+        .login-container label {
+            display: block;
+            font-size: 14px;
+            color: #b2becd;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #b2becd;
+            border-radius: 6px;
+            background-color: #0f3460;
+            color: #eaeaea;
+        }
+
+        .password-container {
+            position: relative;
+        }
+
+        .password-container button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #b2becd;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .login-container button[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #0fbcf9;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-container button[type="submit"]:hover {
+            background-color: #0984e3;
+        }
+
+        .login-container #error-message {
+            color: #d63031;
+            margin-top: 10px;
+            font-size: 14px;
+            display: none;
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        .fade-out {
+            animation: fadeOut 1s forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="icon/shifamanproject.png" alt="Logo">
+        <h2>Connexion</h2>
+        <form id="loginForm">
+            <label for="username">Nom d'utilisateur :</label>
+            <input type="text" id="username" name="username" placeholder="Entrez votre nom d'utilisateur" required>
+
+            <label for="password">Mot de passe :</label>
+            <div class="password-container">
+                <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe" required>
+                <button type="button" id="togglePassword">👀</button>
+            </div>
+
+            <button type="submit">Se connecter</button>
+            <p id="error-message">Nom d'utilisateur ou mot de passe incorrect</p>
+        </form>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const togglePassword = document.getElementById('togglePassword');
+        const errorMessage = document.getElementById('error-message');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = usernameInput.value;
+            const password = passwordInput.value;
+
+            if (username === "MyfouPrime" && password === "MDPS") {
+                document.querySelector('.login-container').classList.add('fade-out');
+                setTimeout(() => {
+                    window.location.href = "index.html";
+                }, 1000);
+            } else {
+                errorMessage.style.display = 'block';
+            }
+        });
+
+        togglePassword.addEventListener('click', function() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.textContent = type === 'password' ? '👀' : '🔒';
+        });
+    </script>
+</body>
+</html>

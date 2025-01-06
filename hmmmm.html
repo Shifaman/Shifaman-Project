@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>??????????</title>
+</head>
+<body>
+    <header>
+        <h1>??????????</h1>
+    </header>
+    <nav>
+        <a href="aboutme.html">
+            <img src="icon/aboutme.png" alt="À PROPOS DE MOI">
+        </a>
+    </nav>
+    <section id="accueil" class="fade-in">
+        <h2>Vous êtes arriver sur la page secrète....</h2>
+        <p></p>
+    </section>
+
+
+    <section id="presentation" class="fade-in">
+        <h2>Présentation de la page secrète...</h2>
+        <h3>Voici quelques images SECRETE....</h3>
+        
+        <div class="image-description image-left fade-in">
+            <img src="hmmmm/image1.png" alt="bas dacord">
+            <button class="toggle-button" aria-expanded="false" aria-controls="desc1"></button>
+            <div class="description" id="desc1">
+                <h4>SY HALF LIFE 2 RP</h4>
+                <p>Dans SY Half-Life 2 RP, après l'échec de Gordon Freeman, le Cartel extraterrestre contrôle la Terre. Les citoyens sont surveillés et punis pour tout comportement suspect. Ils ont trois choix : rejoindre la résistance, collaborer avec le Cartel, ou rester des citoyens loyaux pour améliorer leur condition de vie.</p>
+            </div>
+        </div>
+
+        <div class="image-description image-right fade-in">
+            <img src="hmmmm/image2.png" alt="bas dacord">
+            <button class="toggle-button" aria-expanded="false" aria-controls="desc2"></button>
+            <div class="description" id="desc2">
+                <h4>AYS POST APO RP</h4>
+                <p>Dans AYS POST APO, un virus mortel échappé d'un laboratoire en 2032 a ravagé la planète, infectant 3,5 milliards de personnes en un jour. Le virus rend les êtres vivants fous et violents. Malgré les efforts de l'OMS, la Terre est devenue hostile. À Pripyat, des troupes armées défendent un pont, mais face à une vague d'infectés et l'apparition d'un mutant nommé Panzer, elles sont forcées de fuir, abandonnant leur équipement.</p>
+            </div>
+        </div>
+
+        <div class="image-description image-right fade-in">
+            <img src="hmmmm/image3.png" alt="bas dacord">
+            <button class="toggle-button" aria-expanded="false" aria-controls="desc2"></button>
+            <div class="description" id="desc2">
+                <h4>AYS POST APO RP</h4>
+                <p>Dans AYS POST APO, un virus mortel échappé d'un laboratoire en 2032 a ravagé la planète, infectant 3,5 milliards de personnes en un jour. Le virus rend les êtres vivants fous et violents. Malgré les efforts de l'OMS, la Terre est devenue hostile. À Pripyat, des troupes armées défendent un pont, mais face à une vague d'infectés et l'apparition d'un mutant nommé Panzer, elles sont forcées de fuir, abandonnant leur équipement.</p>
+            </div>
+        </div>
+
+        
+    </section>
+
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleButtons = document.querySelectorAll('.toggle-button');
+
+            toggleButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const descId = this.getAttribute('aria-controls');
+                    const description = document.getElementById(descId);
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+                    // Toggle la classe 'show' pour afficher/masquer la description
+                    description.classList.toggle('show');
+
+                    // Met à jour l'attribut aria-expanded pour l'accessibilité
+                    this.setAttribute('aria-expanded', !isExpanded);
+
+                    // Change l'icône de la flèche
+                    this.textContent = isExpanded ? '' : '';
+                });
+            });
+
+            // Ajouter un événement pour quand la page est chargée
+            window.addEventListener('load', function() {
+                const fadeInElements = document.querySelectorAll('.fade-in');
+                
+                fadeInElements.forEach(element => {
+                    element.classList.add('show'); // Ajoute la classe show pour déclencher l'animation
+                });
+            });
+        });
+</script>
+    </section>
+    <footer class="fade-in">
+        <p>&copy; ...SP...</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,355 @@
+/* Animation pour faire glisser l'image vers le haut */
+@keyframes slide-up {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+
+/* Animation pour faire tomber l'image */
+@keyframes fall-in {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.custom-craft-video-container {
+    max-width: 300px; /* Limite la largeur du conteneur principal */
+        flex-direction: row-reverse;
+}
+
+.custom-craft-video-container video {
+    max-width: 100%; /* S'adapte à la largeur du conteneur */
+    height: auto; /* Conserve les proportions de la vidéo */
+        flex-direction: row-reverse;
+}
+
+.custom-craft-video-container .custom-description {
+    max-height: 150px; /* Limite la hauteur de la description */
+    overflow-y: auto; /* Barre de défilement si le texte dépasse */
+        flex-direction: row-reverse;
+}
+
+
+
+
+
+#logout-button {
+    position: absolute; /* Positionne le bouton relativement à son conteneur */
+    top: 20px; /* 20 pixels du haut */
+    left: 20px; /* 20 pixels de la gauche */
+    z-index: 1000; /* Au-dessus des autres éléments */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Transition pour l'animation */
+}
+
+.logout:hover {
+    transform: scale(1.1); /* Grossit légèrement le bouton au survol */
+    background-color: red; /* Change la couleur de fond en rouge */
+    border-radius: 5px; /* Ajoute des coins arrondis */
+}
+
+}
+
+#logout-button button {
+    padding: 10px 15px; /* Espacement autour du texte du bouton */
+    background-color: #FF3B3B; /* Couleur d'arrière-plan du bouton */
+    color: white; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer; /* Changement du curseur sur le survol */
+    transition: background-color 0.3s; /* Transition douce pour le changement de couleur */
+}
+
+#logout-button button:hover {
+    background-color: #FF1A1A; /* Couleur du bouton au survol */
+}
+
+.logout {
+    display: inline-block; /* Assurez-vous que le lien se comporte comme un bloc */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Ajoute une transition pour l'animation */
+}
+
+.logout:hover {
+    transform: scale(1.1); /* Grossit légèrement le bouton */
+    background-color: red; /* Change la couleur de fond en rouge */
+    border-radius: 5px; /* Optionnel : ajoute des coins arrondis */
+}
+
+
+
+
+/* Animation d'entrée */
+header img.fall-in {
+    animation: fall-in 0.8s ease-in-out forwards;
+}
+
+/* Animation de sortie */
+header img.slide-up {
+    animation: slide-up 0.8s ease-in-out forwards;
+}
+
+
+.login-container {
+    max-width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+}
+
+.login-container label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.login-container button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.login-container button:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+/* Styles de base */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.description.show {
+    display: block; /* Montre lorsque la classe 'show' est ajoutée */
+}
+
+
+header {
+    background: linear-gradient(to right,   #062745,  #6d470a);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #444;
+    padding: 10px 0;
+}
+
+nav a {
+    margin: 0 15px;
+}
+
+nav img {
+    width: 40px;
+    height: 40px;
+    border-radius: 15px;
+}
+
+section {
+    padding: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+/*@keyframes slide-up { animation vers le haut des images
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+
+.slide-up {
+    animation: slide-up 0.5s ease forwards;
+}*/
+
+
+
+/* Styles pour les images et descriptions */
+.image-description {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px; /* Augmenté pour laisser de l'espace pour la barre */
+    position: relative; /* Nécessaire pour les pseudo-éléments */
+    padding: 20px 0; /* Espacement vertical autour de l'image */
+}
+
+.image-description.image-left {
+    flex-direction: row;
+}
+
+.image-description.image-right {
+    flex-direction: row-reverse;
+}
+
+/* Modification de la barre horizontale en bas */
+.image-description::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100vw; /* Largeur totale de la fenêtre */
+    height: 2px; /* Désépaississement de la barre de 4px à 2px */
+    background-color: #333; /* Couleur de la barre */
+    z-index: 1; /* Assure que la barre est derrière le contenu */
+    bottom: 0; /* Positionne la barre en bas */
+}
+
+.image-description img {
+    max-width: 700px; /* Augmentation de la taille des images de 500px à 700px */
+    height: auto;
+    margin: 0 15px;
+    border-radius: 15px; /* Ajoute des coins arrondis avec un rayon de 15px */
+    /* Les bordures précédentes sont supprimées */
+}
+.image-description  {
+    max-width: 700px; /* Augmentation de la taille des images de 500px à 700px */
+    height: auto;
+    margin: 0 15px;
+    border-radius: 15px; /* Ajoute des coins arrondis avec un rayon de 15px */
+    /* Les bordures précédentes sont supprimées */
+}
+
+
+.image-description .description {
+    /* Assure que la description ne chevauche pas la barre */
+    position: relative;
+    z-index: 2;
+}
+
+/* Styles pour le bouton flèche */
+.toggle-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+}
+
+.toggle-button:focus {
+    outline: none;
+}
+
+/* Styles pour la description cachée */
+.description {
+    display: none;
+    max-width: 700px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.description.show {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Style du bouton flèche quand actif */
+.toggle-button[aria-expanded="true"] {
+    transform: rotate(90deg);
+}
+
+/* Responsivité */
+@media (max-width: 768px) {
+    .image-description {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 40px; /* Ajustement pour la barre */
+    }
+
+    .image-description.image-right {
+        flex-direction: column;
+    }
+
+    /* Ajustement des pseudo-éléments pour les petits écrans */
+    .image-description::after {
+        width: 100vw;
+    }
+
+    .image-description img {
+        margin: 0 0 10px;
+        max-width: 100%;
+    }
+
+    .toggle-button {
+        align-self: flex-end;
+    }
+}
+
+/* Styles pour la section du lore */
+#accueil {
+    border: 2px solid #333;        /* Contour solide de 2px avec une couleur gris foncé */
+    padding: 20px;                  /* Espacement interne de 20px autour du contenu */
+    border-radius: 10px;            /* Coins arrondis pour un effet plus doux */
+    background-color: #f9f9f9;      /* Optionnel : couleur de fond légèrement grise */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optionnel : ombre pour donner de la profondeur */
+    margin: 20px;              /* Centrer la section avec une marge de 20px en haut et en bas */
+    max-width: 2000px;                /* Limiter la largeur maximale pour une meilleure lisibilité */
+}
+
+/* Optionnel : Styles pour les titres et paragraphes à l'intérieur de #accueil */
+#accueil h2 {
+    text-align: center;             /* Centrer le titre */
+    margin-bottom: 15px;            /* Espacement en dessous du titre */
+    color: #333;                    /* Couleur du texte du titre */
+}
+
+#accueil p {
+    line-height: 1.6;               /* Hauteur de ligne pour une meilleure lisibilité */
+    color: #555;                    /* Couleur du texte des paragraphes */
+}
+
+/* Animation de fade-in */
+.fade-in {
+    opacity: 0;               /* Commence invisible */
+    transform: translateY(20px); /* Déplace légèrement vers le bas */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Transition douce */
+}
+
+.fade-in.show {
+    opacity: 1;               /* Rendre visible */
+    transform: translateY(0); /* Retourne à la position d'origine */
+}

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>AYS POST APO</title>
+    <link rel="icon" href="icon/ayslogo.png">
+</head>
+<body>
+    <header>
+    <img src="icon/ayslogo.png" alt="Shifman Project" width="165" height="auto" >
+
+
+            <a href="auth.html" id="logout-button" class="logout">
+        <img src="icon/logout.png" alt="SY HALF LIFE²" width="75" height="auto">
+    </a>
+
+    
+    </header>
+    <nav>
+        <a href="index.html">
+            <img src="icon/aceuil.png" alt="Accueil">
+        </a>
+        <a href="syhl2.html" class="halflife2">
+            <img src="icon/SYHALFLIFE.png" alt="SY HALF LIFE²">
+        </a>
+        <a href="ayspostapo.html" class="abandon">
+            <img src="icon/ayslogoselected.png" alt="AYS POST APO">
+        </a>
+                <a href="syhl2v1.html" class="halflife2">
+            <img src="syv1/syv1logo.png" alt="SY HALF LIFE V1">
+        </a>
+        <a href="aboutme.html">
+            <img src="icon/aboutme.png" alt="À PROPOS DE MOI">
+        </a>
+    </nav>
+    <section id="accueil" class="fade-in">
+        <h2>LORE AYS POST APO RP</h2>
+        <p>Le lore de AYS POST APO est très différent de celui de SY HALF LIFE 2 RP. AYS POST APO, comme son nom l'indique, est un serveur qui se déroule dans un monde post-apocalyptique en 2032.</p>
+        <p>Le 2 janvier 2032, un virus mutant et mortel s'échappe d'un laboratoire tchécoslovaque et se propage rapidement sur Terre. Ce virus rend les êtres vivants fous et assoiffés de sang. Malgré les mesures d'urgence de l'OMS, environ 3,5 milliards de personnes sont infectées ou mortes le premier jour. Après 2,5 mois, les services essentiels fonctionnent encore miraculeusement, mais la Terre est devenue extrêmement hostile avec des chances de survie rares.
+
+        À Pripyat, les troupes armées, équipées de M4A1, d'une tourelle M2 Browning, d'un mortier Ordnance et d'un canon anti-char non fonctionnel, tentent une dernière défense sur un pont. Malgré leur résistance initiale, la situation se détériore à mesure que les infectés affluent. À court de munitions, les troupes se préparent à se retirer, mais l'apparition d'un infecté mutant, surnommé Panzer, les pousse à fuir en laissant leur équipement et le pont aux mains des infectés pour rejoindre la campagne.</p>
+    </section>
+    
+    <section id="presentation" class="fade-in">
+        <h2>Présentation du projet</h2>
+        <h3>Voici quelques images du gameplay du serveur.</h3>
+
+        <!-- Première image avec description et titre -->
+        <div class="image-description image-left">
+            <img src="ays/image1.jpg" alt="Image 1">
+            <button class="toggle-button" aria-expanded="false" aria-controls="desc1">➤</button>
+            <div class="description" id="desc1">
+                <h4>Menu principal du jeu refait</h4>
+                <p>Sur cette image, vous pouvez voir le menu de Garry's Mod qui a été retravaillé pour le projet. Pour réaliser cela, j'ai dû modifier le logo du jeu, les images d'arrière-plan, ainsi que le logo du mode de jeu en bas à droite.</p>
+            </div>
+        </div>
+        
+        <!-- Deuxième image avec description et titre -->
+        <div class="image-description image-right">
+            <img src="ays/image2.jpg" alt="Image 2">
+            <button class="toggle-button" aria-expanded="false" aria-controls="desc2">➤</button>
+            <div class="description" id="desc2">
+                <h4>L'inventaire des survivants</h4>
+                <p>Sur cette image, vous pouvez voir l'inventaire des survivants. Ils en auront besoin pour stocker des objets et vérifier leur état de santé, etc.</p>
+            </div>
+        </div>
+        
+        <!-- Troisième image avec description et titre -->
+        <div class="image-description image-left">
+            <img src="ays/image3.jpg" alt="Image 3">
+            <button class="toggle-button" aria-expanded="false" aria-controls="desc3">➤</button>
+            <div class="description" id="desc3">
+                <h4>Un simple bureau...</h4>
+                <p>Je ne travaille pas seul sur ce projet, mon ami mappeur m'aide avec les logos et la carte, car oui, nous créons une carte personnalisée.</p>
+            </div>
+        </div>
+        
+        <!-- Quatrième image avec description et titre -->
+        <div class="image-description image-right">
+            <img src="ays/image4.jpg" alt="Image 4">
+            <button class="toggle-button" aria-expanded="false" aria-controls="desc4">➤</button>
+            <div class="description" id="desc4">
+                <h4>Le menu du serveur</h4>
+                <p>Probablement l'élément le plus complexe, avec l'inventaire. Jusqu'ici, recréer les interfaces utilisateur a été très difficile.</p>
+            </div>
+        </div>
+        
+        <!-- Cinquième image avec description et titre -->
+        <div class="image-description image-left">
+            <img src="ays/image5.jpg" alt="Image 5">
+            <button class="toggle-button" aria-expanded="false" aria-controls="desc5">➤</button>
+            <div class="description" id="desc5">
+                <h4>Une carte...</h4>
+                <p>Pour les survivants qui veulent explorer, ils peuvent acheter ou trouver une carte quelque part. Je pense que cela leur sera très utile.</p>
+            </div>
+        </div>
+        
+    </section>
+    
+    <footer class="fade-in">
+        <p>&copy; AYS</p>
+    </footer>
+
+    <!-- Script JavaScript pour gérer le clic sur les flèches -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleButtons = document.querySelectorAll('.toggle-button');
+
+            toggleButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const descId = this.getAttribute('aria-controls');
+                    const description = document.getElementById(descId);
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+                    // Toggle la classe 'show' pour afficher/masquer la description
+                    description.classList.toggle('show');
+
+                    // Met à jour l'attribut aria-expanded pour l'accessibilité
+                    this.setAttribute('aria-expanded', !isExpanded);
+
+                    // Change l'icône de la flèche
+                    this.textContent = isExpanded ? '➤' : '➣';
+                });
+            });
+
+            // Ajouter un événement pour quand la page est chargée
+            window.addEventListener('load', function() {
+                const fadeInElements = document.querySelectorAll('.fade-in');
+                
+                fadeInElements.forEach(element => {
+                    element.classList.add('show'); // Ajoute la classe show pour déclencher l'animation
+                });
+            });
+        });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Sélectionne uniquement l'image dans le <header>
+    const headerImage = document.querySelector('header img');
+
+    // Applique l'animation "fall-in" quand la page se charge
+    headerImage.classList.add('fall-in');
+
+    // Sélectionne tous les liens du menu
+    const navLinks = document.querySelectorAll('nav a');
+
+    // Pour chaque lien, on ajoute un écouteur de clic
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            // Empêche le comportement par défaut du lien (navigation immédiate)
+            event.preventDefault();
+
+            // Applique l'animation "slide-up" à l'image du header
+            headerImage.classList.remove('fall-in');  // Retire l'animation d'entrée
+            headerImage.classList.add('slide-up');    // Applique l'animation de sortie
+
+            // Attend que l'animation soit terminée avant de charger la nouvelle page
+            setTimeout(() => {
+                window.location.href = this.href;
+            }, 800); // Correspond à la durée de l'animation
+        });
+    });
+});
+
+
+
+    </script>
+</body>
+</html>

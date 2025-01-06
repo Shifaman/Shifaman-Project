@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>SY HALF LIFE² V1</title>
+    <link rel="icon" href="syv1/syv1logo.png">
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <header>
+    <img src="syv1/syv1logo.png" alt="Shifman Project" width="165" height="auto" class="fade-in">
+
+            <a href="auth.html" id="logout-button" class="logout">
+        <img src="icon/logout.png" alt="SY HALF LIFE²" width="75" height="auto">
+    </a>
+
+    
+    </header>
+    <nav>
+        <a href="index.html">
+            <img src="icon/aceuil.png" alt="Accueil">
+        </a>
+        <a href="syhl2.html" class="halflife2">
+            <img src="icon/SYHALFLIFE.png" alt="SY HALF LIFE²">
+        </a>
+        <a href="ayspostapo.html" class="abandon">
+            <img src="icon/ayslogo.png" alt="AYS POST APO">
+        </a>
+                <a href="syhl2v1.html" class="halflife2">
+            <img src="syv1/syv1logoselected.png" alt="SY HALF LIFE V1">
+        </a>
+        <a href="aboutme.html">
+            <img src="icon/aboutme.png" alt="À PROPOS DE MOI">
+        </a>
+    </nav>
+    <section id="accueil" class="fade-in">
+        <h2>LORE SY HALF LIFE 2 RP V1</h2>
+        <p>Après plus de 8 mois d'attente la V1 du serveur SY HALF LIFE 2 RP est sut le point de sortir.</p>
+        <p>A l'origine SY HALF LIFE 2 RP avait été abandonner suite a beaucoups de problèmes dans l'administration du projet mais finalement</p>
+    </section>
+    
+    <section id="presentation" class="fade-in">
+        <h2>Présentation du projet</h2>
+        <h3>Voici quelques images du gameplay du serveur.</h3>
+        
+        <div class="image-description image-left fade-in">
+            <img src="syv1/terminalcitoyen.png" alt="Image 1">
+            <button class="toggle-button" aria-expanded="false" aria-controls="desc1">➤</button>
+            <div class="description" id="desc1">
+                <h4>TERMINAL CITOYEN</h4>
+                <p>Une base de données qui est accessible depuis une machine à laquelle les citoyens ont accès elle permet de voir vos informations comme vos points de loyauté, votre statut citoyen, votre ID et vos points d'infractions.</p>
+            </div>
+        </div>
+
+        <div class="image-description image-right fade-in">
+            <img src="syv1/mainmenu.png" alt="Image 2">
+            <button class="toggle-button" aria-expanded="false" aria-controls="desc2">➤</button>
+            <div class="description" id="desc2">
+                <h4>LE MENU DU SERVEUR</h4>
+                <p>Probablement l'élément le plus complexe, avec la data. Jusqu'ici, recréer les interfaces utilisateur a été très difficile.</p>
+            </div>
+        </div>
+
+
+<div class="image-description image-left fade-in">
+    <video src="syv1/radiobreenvideo.mp4" controls alt="Vidéo 3" aria-labelledby="desc3"></video>
+    <button class="toggle-button" aria-expanded="false" aria-controls="desc3">➤</button>
+    <div class="description" id="desc3">
+        <h4>La radio...</h4>
+        <p>Grace au deuxième fondateur qui travail avec moi ce projet nous avons obtenu un abonnement 11Labs ce qui nous a permis de reproduire la voix de Walace Breen dans Half Life 2. J'ai alors pris la décision de créer des radios qui sont présente dans less appartement des citoyens de cité 27.</p>
+    </div>
+      </div>
+
+    <div class="image-description image-right fade-in">
+    <video src="syv1/craftsystemvideo.mp4" controls alt="Vidéo 3" aria-labelledby="desc4"></video>
+    <button class="toggle-button" aria-expanded="false" aria-controls="desc4">➤</button>
+    <div class="description" id="desc4">
+        <h4>Le système de craft.</h4>
+        <p>Dans cette video ont peut voir le système de craft du serveur.</p>
+    </div>
+</div>
+
+        
+    </section>
+    
+    <section id="Rose" class="fade-in">
+    </section>
+    
+    <footer class="fade-in">
+        <p>&copy; SY</p>
+    </footer>
+
+    <!-- Script JavaScript pour gérer le clic sur les flèches et l'animation fade-in -->
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleButtons = document.querySelectorAll('.toggle-button');
+
+            toggleButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const descId = this.getAttribute('aria-controls');
+                    const description = document.getElementById(descId);
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+                    // Toggle la classe 'show' pour afficher/masquer la description
+                    description.classList.toggle('show');
+
+                    // Met à jour l'attribut aria-expanded pour l'accessibilité
+                    this.setAttribute('aria-expanded', !isExpanded);
+
+                    // Change l'icône de la flèche
+                    this.textContent = isExpanded ? '➤' : '➣';
+                });
+            });
+
+            // Ajouter un événement pour quand la page est chargée
+            window.addEventListener('load', function() {
+                const fadeInElements = document.querySelectorAll('.fade-in');
+                
+                fadeInElements.forEach(element => {
+                    element.classList.add('show'); // Ajoute la classe show pour déclencher l'animation
+                });
+            });
+        });
+
+
+/*document.addEventListener('DOMContentLoaded', function() {
+    // Sélectionnez tous les liens du menu
+    const navLinks = document.querySelectorAll('nav a');
+
+    // Pour chaque lien, on ajoute un écouteur de clic
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            // Empêche le comportement par défaut du lien (chargement immédiat de la page)
+            event.preventDefault();
+
+            // Sélectionne toutes les images de la page
+            const images = document.querySelectorAll('img');
+
+            // Applique l'animation à toutes les images
+            images.forEach(img => {
+                img.classList.add('slide-up');
+            });
+
+            // Attend que l'animation se termine avant de changer de page
+            setTimeout(() => {
+                window.location.href = this.href; // Redirige vers la nouvelle page après l'animation
+            }, 500); // Délai de 500ms (correspond à la durée de l'animation)
+        });
+    });
+}); animation vers le haut des images */
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Sélectionne uniquement l'image dans le <header>
+    const headerImage = document.querySelector('header img');
+
+    // Applique l'animation "fall-in" quand la page se charge
+    headerImage.classList.add('fall-in');
+
+    // Sélectionne tous les liens du menu
+    const navLinks = document.querySelectorAll('nav a');
+
+    // Pour chaque lien, on ajoute un écouteur de clic
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            // Empêche le comportement par défaut du lien (navigation immédiate)
+            event.preventDefault();
+
+            // Applique l'animation "slide-up" à l'image du header
+            headerImage.classList.remove('fall-in');  // Retire l'animation d'entrée
+            headerImage.classList.add('slide-up');    // Applique l'animation de sortie
+
+            // Attend que l'animation soit terminée avant de charger la nouvelle page
+            setTimeout(() => {
+                window.location.href = this.href;
+            }, 800); // Correspond à la durée de l'animation
+        });
+    });
+});
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
