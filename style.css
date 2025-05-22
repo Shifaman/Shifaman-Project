@@ -1,3 +1,68 @@
+/* Effets d'arrière-plan */
+.background-effects {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    background-color: #1b1b1b;
+}
+
+/* Animation de chaque logo */
+.logo-animation {
+    position: absolute;
+    width: 150px; /* Taille augmentée */
+    height: 150px; /* Taille augmentée */
+    background-image: url('icon/shifamanproject.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: logo-scroll 12s linear infinite;
+    opacity: 0.15;
+    filter: blur(1px);
+}
+
+/* Animation de défilement vers le bas */
+@keyframes logo-scroll {
+    0% {
+        top: -250px; /* Correspond à la nouvelle taille */
+    }
+    100% {
+        top: 100vh;
+    }
+}
+
+/* Génération multiple des logos avec décalage */
+.background-effects::before,
+.background-effects::after {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background-image: url('icon/shifamanproject.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    filter: blur(1px);
+}
+
+/* Défilement synchronisé */
+.background-effects::before {
+    left: 20%;
+    animation: logo-scroll 12s linear infinite;
+    animation-delay: 2s;
+}
+
+.background-effects::after {
+    left: 60%;
+    animation: logo-scroll 12s linear infinite;
+    animation-delay: 4s;
+}
+
+
+
 /* PALETTE GÉNÉRALE */
 :root {
     --background: #1b1b1b;
@@ -106,16 +171,31 @@ h2, h3 {
 /* IMAGE ET DESCRIPTION */
 .image-description {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
+    flex-wrap: nowrap; /* Évite que le texte passe en dessous */
+    gap: 20px; /* Espace entre texte et image/vidéo */
+    margin-bottom: 50px; /* Espace entre les blocs */
     padding: 20px;
     border: 1px solid var(--border-color);
     border-radius: 10px;
     background: #222;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Gardé */
 }
+
+.image-description .description,
+.image-description iframe,
+.image-description img {
+    flex: 1 1 50%;
+    max-width: 50%;
+    box-sizing: border-box;
+}
+
+.description p, .description h4 {
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
 
 .image-description img {
     max-width: 45%;

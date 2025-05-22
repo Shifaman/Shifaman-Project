@@ -7,12 +7,28 @@
     <title>SY HALF LIFE² V1</title>
     <link rel="icon" href="syv1/syv1logo.png">
 
-    <style>
+<style>
+@font-face {
+    font-family: 'Nagonia';
+    src: url('font/Nagonia.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
 
-    </style>
+body {
+    font-family: 'Nagonia', sans-serif;
+}
+</style>
 </head>
 
 <body>
+    <div class="background-effects">
+    <div class="logo-animation" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="logo-animation" style="left: 40%; animation-delay: 3s;"></div>
+    <div class="logo-animation" style="left: 70%; animation-delay: 6s;"></div>
+    <div class="logo-animation" style="left: 90%; animation-delay: 9s;"></div>
+</div>
+
     <header>
     <img src="syv1/syv1logo.png" alt="Shifman Project" width="165" height="auto" class="fade-in">
 
@@ -41,27 +57,21 @@
     </nav>
     <section id="accueil" class="fade-in">
         <h2>LORE SY HALF LIFE 2 RP V1</h2>
-        <p>Après plus de 8 mois d'attente la V1 du serveur SY HALF LIFE 2 RP est sut le point de sortir.</p>
-        <p>A l'origine SY HALF LIFE 2 RP avait été abandonner suite a beaucoups de problèmes dans l'administration du projet mais finalement</p>
+        <p>À l'origine, Half-Life 2 est un jeu de tir qui parle d'un monde sous oppression extraterrestre. Nous incarnons un homme se nommant Gordon Freeman, anciennement docteur dans un laboratoire appelé Black Mesa. Dans le jeu, Gordon Freeman libère la Terre de cette oppression à l'aide de la résistance.
+
+Mais imaginons qu'il ait échoué et qu'il soit mort... C'est là que SY HALF-LIFE 2 RP commence. Dans ce monde où le Cartel contrôle la Terre (Cartel, MPF, Combine = Extraterrestres), les gens n'ont pas le droit de courir, sauter ou s'accroupir ; ces comportements sont considérés comme suspects et seront punis par un tabassage public. Ici-bas, il y a deux camps : soit vous rejoignez les anti-citoyens (la résistance), soit vous rejoignez les rangs du Cartel. Mais il vous reste une dernière option... rester un citoyen modèle et monter les échelons de loyauté pour vivre un peu plus paisiblement.</p>
+<p>Après plus de 8 mois d'attente la V1 du serveur SY HALF LIFE 2 RP sort enfin. À l'origine, SY HALF LIFE 2 RP avait été abandonné suite à de nombreux problèmes dans l'administration du projet. Finalement, il a repris en octobre 2024 et a fermé fin décembre 2024. Le projet aura duré 2 mois.</p>
     </section>
     
 <section id="presentation" class="fade-in">
     <h2>Présentation du projet</h2>
     <h3>Voici quelques images du gameplay du serveur.</h3>
     
-    <div class="image-description image-left fade-in">
+    <div class="image-description image-right fade-in">
         <img src="syv1/terminalcitoyen.png" alt="Image 1">
         <div class="description">
             <h4>TERMINAL CITOYEN</h4>
             <p>Une base de données qui est accessible depuis une machine à laquelle les citoyens ont accès. Elle permet de voir vos informations comme vos points de loyauté, votre statut citoyen, votre ID et vos points d'infractions.</p>
-        </div>
-    </div>
-
-    <div class="image-description image-right fade-in">
-        <img src="syv1/mainmenu.png" alt="Image 2">
-        <div class="description">
-            <h4>LE MENU DU SERVEUR</h4>
-            <p>Probablement l'élément le plus complexe, avec la data. Jusqu'ici, recréer les interfaces utilisateur a été très difficile.</p>
         </div>
     </div>
 
@@ -73,13 +83,32 @@
         </div>
     </div>
 
+
     <div class="image-description image-right fade-in">
-        <video src="syv1/craftsystemvideo.mp4" controls alt="Vidéo 4" aria-labelledby="desc4"></video>
+        <video src="syv1/uishowcase.mp4" controls alt="Vidéo 4" aria-labelledby="desc4"></video>
         <div class="description">
-            <h4>Le système de craft</h4>
-            <p>Dans cette vidéo, on peut voir le système de craft du serveur.</p>
+            <h4>Les interfaces.</h4>
+<p>Dans cette vidéo, on peut voir les interfaces que j'ai dû refaire pour la V1. En effet, les interfaces sont un élément important pour l'immersion du joueur.</p>
         </div>
     </div>
+
+        <div class="image-description image-left fade-in">
+        <video src="syv1/slotshowcase.mp4" controls alt="Vidéo 4" aria-labelledby="desc4"></video>
+        <div class="description">
+            <h4>Le système de slot.</h4>
+<p>Dans cette vidéo, on peut voir le système de slots du serveur, qui permettait aux joueurs d’équiper des vêtements et des armures.</p>
+        </div>
+    </div>
+
+            <div class="image-description image-right fade-in">
+        <video src="syv1/walshowcase.mp4" controls alt="Vidéo 4" aria-labelledby="desc4"></video>
+        <div class="description">
+            <h4>Le Walhammer.</h4>
+<p>Dans cette vidéo, on peut voir le Walhammer. Le Walhammer est probablement l’un des ennemis les plus dangereux du jeu, avec une puissance de tir accrue. Cette vidéo est une démonstration de sa puissance.</p>
+        </div>
+    </div>
+
+
 </section>
 
     
@@ -181,6 +210,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+window.onload = function() {
+    const faviconUrl = document.getElementById("dynamic-favicon").href;
+    document.querySelectorAll('.logo-animation, .background-effects::before, .background-effects::after')
+        .forEach(el => {
+            el.style.backgroundImage = `url(${faviconUrl})`;
+        });
+};
 
 
 

@@ -7,70 +7,93 @@
     <title>A propos de moi</title>
     <link rel="icon" href="icon/shifamanproject.png">
     <style>
-        /* Styles pour la section des commentaires */
-        #commentaires {
-            margin: 20px 0;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            background-color: #f9f9f9;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
+/* Styles pour la section des commentaires */
+#commentaires {
+    margin: 40px auto 0 auto;
+    width: 90%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #000; /* Fond noir */
+    color: white; /* Texte blanc */
+    border-radius: 15px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
 
-        #commentaires h2 {
-            margin-bottom: 15px;
-            color: #333;
-        }
 
-        #comment-form {
-            display: flex;
-            flex-direction: column;
-        }
+#commentaires h2 {
+    margin-bottom: 10px;
+    color: white;
+    text-align: center;
+}
 
-        #comment-input {
-            resize: none;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
+#comment-form {
+    display: flex;
+    flex-direction: column;
+}
 
-        #comment-form button {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            background-color: #4CAF50; /* Couleur verte */
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+#comment-input {
+    resize: none;
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    background-color: #222;
+    color: white;
+}
 
-        #comment-form button:hover {
-            background-color: #45a049; /* Couleur plus foncée au survol */
-        }
+#comment-form button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
-        #comments-list {
-            margin-top: 20px;
-        }
+#comment-form button:hover {
+    background-color: #45a049;
+}
 
-        .comment {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 10px;
-            margin-bottom: 10px;
-            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-        }
+#comments-list {
+    margin-top: 15px;
+    max-height: 150px;
+    overflow-y: auto;
+}
 
-        .comment p {
-            margin: 0;
-            color: #555;
-        }
-    </style>
+.comment {
+    background-color: #111;
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 8px;
+    margin-bottom: 8px;
+    box-shadow: 0 1px 5px rgba(255, 255, 255, 0.05);
+}
+
+.comment p {
+    margin: 0;
+    color: #ccc;
+}
+
+
+@font-face {
+    font-family: 'Designer'; /* nom personnalisé que tu vas utiliser */
+    src: url('font/Designer.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Designer', sans-serif;
+        font-size: 15px; /* ← augmente cette valeur selon ton besoin */
+}
+</style>
 </head>
 <body>
+    
     <header>
         <img src="icon/shifamanproject.png" alt="Shifman Project" width="165" height="auto">
 
@@ -94,9 +117,6 @@
         <a href="aboutme.html">
             <img src="icon/aboutmeslected.png" alt="À PROPOS DE MOI">
         </a>
-        <a href="hmmmm.html">
-            <img src="icon/hmmmm.png" alt="">
-        </a>
     </nav>
     <section id="accueil" class="fade-in">
         <ol>
@@ -104,11 +124,11 @@
         </ol>
         <p>Ici, je vais me présenter.
 
-Je suis un jeune développeur ayant commencé en décembre 2021 sur un projet de roleplay post-apocalyptique sur le jeu Garry's Mod. À l'origine, c'est mon cousin qui m'a montré les bases de la configuration de serveurs, mais, grâce à ma détermination, j'ai décidé d'apprendre à créer moi-même des contenus. C'est ainsi que j'ai commencé le développement pour la première fois. J'ai rapidement compris que cela me plaisait et que c'était ce que je voulais faire plus tard. J'ai alors travaillé pendant deux ans, jusqu'à lancer mon plus gros projet de l'époque : SY Half Life 2 RP. Après de longues heures de développement, le serveur a enfin ouvert ses portes au public. Grâce au travail acharné investi dans ce projet, le serveur a rencontré un franc succès, avec une moyenne de 20 joueurs, ce qui est plutot pas mal on va dire pour Garry's Mod.
+Je suis un jeune développeur ayant commencé en décembre 2021 sur un projet de roleplay post-apocalyptique sur le jeu Garry's Mod. À l'origine, c'est mon cousin qui m'a montré les bases de la configuration de serveurs, mais, grâce à ma détermination, j'ai décidé d'apprendre à créer moi-même des contenus. C'est ainsi que j'ai commencé le développement pour la première fois. J'ai rapidement compris que cela me plaisait et que c'était ce que je voulais faire plus tard. J'ai alors travaillé pendant deux ans, jusqu'à lancer mon plus gros projet de l'époque : SY Half Life 2 RP. Après de longues heures de développement, le serveur a enfin ouvert ses portes au public. Grâce au travail acharné investi dans ce projet, le serveur a rencontré un franc succès, avec une moyenne de 20 joueurs, ce qui est impressionnant pour Garry's Mod.
 
 Suite à ce succès, j'ai attiré l'attention d'un développeur reconnu dans le monde de Garry's Mod, qui m'a permis de perfectionner encore mes compétences. Malheureusement, SY a dû fermer ses portes en raison de problèmes d'administration. Après un moment de réflexion, j'ai décidé de me lancer dans un nouveau projet, toujours en développement : AYS Post Apo RP. Cependant, au fil du temps, les problèmes de code se sont accumulés, et ma motivation a fini par décliner.
 
-Je savais pourtant que je ne pouvais pas abandonner si facilement ; il était essentiel pour moi de continuer à progresser. C'est pour cette raison que je me suis donner a fond pour faire des choses encore plus impressionantes j'ai continuer et le projet avance grandement.</p>
+Je savais pourtant que je ne pouvais pas abandonner si facilement ; il était essentiel pour moi de continuer à progresser. C'est pour cette raison que j'ai pris une petite pause avant de reprendre le projet SY HL2RP, dans le but de le sortir de façon définitive.</p>
     </section> 
     <section id="presentation" class="fade-in">
         <h2>Me contacter.</h2>
@@ -126,22 +146,23 @@ Je savais pourtant que je ne pouvais pas abandonner si facilement ; il était es
     <section id="info-panel">
         <h2>Mes Informations</h2>
         <ul>
-            <li><span>Email:</span> *******************@gmail.com</li>
-            <li><span>Téléphone:</span> ** ** ** ** **</li>
-            <li><span>Lycée:</span> Le lycée La Fayette</li>
-            <li><span>Âge:</span> 17 ans</li>
+            <li><span>Email:</span> kylian.fourmy77650@gmail.com</li>
+            <li><span>Téléphone:</span> 07 50 57 03 90</li>
+            <li><span>Lycée:</span> Le lycée La Fayette - Site de Fontaineroux</li>
+            <li><span>Âge:</span> 16 ans</li>
         </ul>
     </section>
 
-    <!-- Section des commentaires -->
-    <section id="commentaires" class="fade-in">
-        <h2>Commentaires</h2>
-        <form id="comment-form">
-            <textarea id="comment-input" placeholder="Écrivez votre commentaire ici..." required></textarea>
-            <button type="submit">Soumettre</button>
-        </form>
-        <div id="comments-list"></div>
-    </section>
+<!-- Section des commentaires -->
+<section id="commentaires">
+    <h2>Commentaires</h2>
+    <form id="comment-form">
+        <textarea id="comment-input" placeholder="Écrivez votre commentaire ici..." required></textarea>
+        <button type="submit">Soumettre</button>
+    </form>
+    <div id="comments-list"></div>
+</section>
+
 
     <footer class="fade-in">
         <p>&copy; SY/AYS</p>
